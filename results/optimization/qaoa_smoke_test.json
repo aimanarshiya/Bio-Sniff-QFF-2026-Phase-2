@@ -1,0 +1,19 @@
+{
+  "kind": "smoke_test_only_not_official_benchmark",
+  "instance": "L",
+  "seed": 0,
+  "initial_angles": [
+    2.0010741575072397,
+    0.8475599579967072
+  ],
+  "optimized_angles": [
+    2.271867379343711,
+    1.1196634688035059
+  ],
+  "expected_qubo_energy": -22.647577471403164,
+  "optimizer_success": false,
+  "optimizer_nfev": 8,
+  "optimizer_maxiter": 8,
+  "ideal_smoke_shots": 256,
+  "runtime_seconds": 1.7549929000015254
+}

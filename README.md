@@ -1,24 +1,51 @@
-# QFF 2026 Phase 2 — Quantum Optimization Track: Starter Pack
+# Bio-Sniff QFF 2026 Phase 2 — PS-O-OI
 
-Read first: `QFF2026_Optimization_Challenge_Kit.docx` (locked instances, official settings, Processor A/B/D rules, Bell-state procedure, metric definitions, submission and judging rules). Where the kit and `OPTIMISATION_PS.docx` differ, the kit governs.
+Bio-Sniff continues its Phase 1 Open Innovation sensor-placement problem. The locked inputs describe synthetic placements and must not be interpreted as measured field performance. The Phase 2 Bio-Sniff deliverables document controls over the generic PS-O1/O2/O3 instances in `data/instances.json`.
 
-## Setup (Python 3.10–3.12)
+## Environment and Run
+
+Use Python 3.10–3.12; this repository was verified with Python 3.12.10. Create and activate an environment, then install the pinned direct dependencies:
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 ```
-python -m venv opt-env
-opt-env\Scripts\activate            # Windows
-source opt-env/bin/activate         # macOS / Linux
-pip install -r requirements.txt
-python example_usage.py             # must finish and print "Processor D rule check: OK"
-```
-Expected output of `example_usage.py` (template Processor D): ideal Bell F = 1.0000, noisy Bell F ≈ 0.963; Processor A prints "not executable (needs 6 qubits > 5)" for PS-O1 — this is correct (capacity rule, kit Section 3).
 
-## Files
-| File | What it is |
-|---|---|
-| `qff_phase2.py` | Official settings, Processors A/B, noise model, `validate_processor_d()`, `circuit_metrics()`, `bell_experiment()`, `counts_to_x()` — keep unchanged and copy into your repo |
-| `instances.json` | Locked data for PS-O1 (graph), PS-O2 (returns, risk matrix, q, k, λ sweep), PS-O3 (items, capacity, slack encoding, P) |
-| `processor_D_template.json` | Processor D file format — copy to `processors/processor_D.json` in your repo and edit. The 3×3 grid is only a format example |
-| `example_usage.py` | Shows the official measurement workflow; does not solve any problem statement |
+Open `main.ipynb`, select the installed Python 3.12 kernel, and run all cells from a clean kernel. Cell 1 checks the environment and official helpers. Cell 2 runs the end-to-end Phase 2 pipeline with checkpointed optimization and measurement caches. Compatible completed work is reused; missing or invalid cache records are recomputed. The optimizer status, including failed attempts and iteration limits, is preserved in the per-seed outputs.
 
-## Submission
-Public GitHub repository URL on the hackathon portal before **5:40 PM IST on Day 2** (layout: kit Section 10). Questions: Optimization track help desk at the venue (clarifications in the first 2 hours of the hackathon) or qiskitfallfest@srmap.edu.in.
+The official organizer helper `qff_phase2.py` is unchanged. The locked `data/instance.json` is the Bio-Sniff input; `data/instances.json` remains the generic starter file and is not used for PS-O-OI.
+
+## Current Measured Summary
+
+The values below are generated from the current result tables. They describe synthetic simulation only.
+
+| Case | Noisy objective ratio | Noisy valid frequency | Random objective ratio | Random valid frequency |
+| --- | ---: | ---: | ---: | ---: |
+| L on B | 0.7255 | 0.2793 | 0.8157 | 0.1641 |
+| L on D | 0.7786 | 0.2891 | 0.8157 | 0.1641 |
+| S on A | 0.9094 | 0.5068 | 0.8829 | 0.3125 |
+| S on B | 0.9865 | 0.5188 | 0.8829 | 0.3125 |
+| S on D | 0.8959 | 0.5118 | 0.8829 | 0.3125 |
+
+For Instance L, the 60-evaluation Step 1A optimizer status was unsuccessful for four of five seeds. The Phase 2 150-evaluation retry reached a successful COBYLA termination for all five L seeds; both attempts and their statuses are recorded. The result above remains a simulated synthetic benchmark, not quantum advantage.
+
+The required two-pair D Bell experiment measured ideal fidelity 1.0000 for both pairs, noisy fidelity 0.9633 for adjacent pair `[0,1]`, and 0.9548 for farthest pair `[0,3]` (graph distance 2). In the noisy L penalty sweep, P=0 produced an invalid QUBO minimum; among tested penalties, P=5 had the highest measured valid-frequency × objective-ratio product. This product is a descriptive comparison, not an official score.
+
+## Outputs
+
+- `results/tables/results.csv`: required per-instance, processor, condition, quality, and resource schema.
+- `results/tables/bell.csv`: ideal/noisy Bell correlations, standard errors, fidelity, and CX count.
+- `results/tables/penalty_sweep.csv`: L-on-D sweep at P = 0, 0.5, 1, 2, 3, 5, 10.
+- `results/tables/seed_runs.csv` and `seed_consistency.csv`: per-seed optimization status, sampled results, and ratio variability.
+- `results/optimization/`: smoke test, optimized angles, resource metrics, and resumable experiment checkpoint cache.
+- `results/figures/`: Processor D topology, logical/transpiled QAOA circuits, benchmark comparison, and penalty sweep.
+- `report.md`: analysis generated from the result tables and checkpoints.
+
+Processor A is correctly marked non-executable for L (nine logical qubits required, five available). Processor A/B/D graphs, official noise rates, 4096-shot evaluation, transpilation level 1, seed 42, and basis gates are taken from the official specification/helper.
+
+## Limitations and AI Disclosure
+
+The candidate grid, coverage data, utility, complementarity, and spacing values are synthetic. They do not establish measured VOC transport, calibrated disease detection, or a validated physical farm placement. No real-field validation or quantum-advantage claim is made.
+
+AI assistance (GitHub Copilot) was used to inspect the official specifications, implement the notebook/pipeline and validation code, and summarize executed results. All reported measurements were generated by the repository pipeline using the official helper and are traceable to the saved CSV/checkpoint outputs.

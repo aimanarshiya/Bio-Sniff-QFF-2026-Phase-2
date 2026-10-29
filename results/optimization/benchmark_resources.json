@@ -1,0 +1,67 @@
+{
+  "L|B": {
+    "processor": "Processor B",
+    "executable": true,
+    "logical_qubits": 9,
+    "physical_qubits": 9,
+    "logical_cx": 72,
+    "cx": 121,
+    "one_q_gates": 108,
+    "depth": 117,
+    "two_q_depth": 79,
+    "swaps": 17,
+    "cx_overhead": 49
+  },
+  "L|D": {
+    "processor": "Processor D",
+    "executable": true,
+    "logical_qubits": 9,
+    "physical_qubits": 9,
+    "logical_cx": 72,
+    "cx": 102,
+    "one_q_gates": 108,
+    "depth": 87,
+    "two_q_depth": 59,
+    "swaps": 10,
+    "cx_overhead": 30
+  },
+  "S|A": {
+    "processor": "Processor A",
+    "executable": true,
+    "logical_qubits": 5,
+    "physical_qubits": 5,
+    "logical_cx": 20,
+    "cx": 32,
+    "one_q_gates": 50,
+    "depth": 59,
+    "two_q_depth": 28,
+    "swaps": 4,
+    "cx_overhead": 12
+  },
+  "S|B": {
+    "processor": "Processor B",
+    "executable": true,
+    "logical_qubits": 5,
+    "physical_qubits": 9,
+    "logical_cx": 20,
+    "cx": 26,
+    "one_q_gates": 50,
+    "depth": 40,
+    "two_q_depth": 22,
+    "swaps": 2,
+    "cx_overhead": 6
+  },
+  "S|D": {
+    "processor": "Processor D",
+    "executable": true,
+    "logical_qubits": 5,
+    "physical_qubits": 9,
+    "logical_cx": 20,
+    "cx": 26,
+    "one_q_gates": 50,
+    "depth": 51,
+    "two_q_depth": 24,
+    "swaps": 2,
+    "cx_overhead": 6
+  }
+}

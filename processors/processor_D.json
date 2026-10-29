@@ -1,0 +1,24 @@
+{
+  "name": "Processor D",
+  "team": "Bio-Sniff",
+  "problem_statement": "PS-O-OI",
+  "num_qubits": 9,
+  "edges": [
+    [0, 1], [0, 2], [0, 7], [0, 8],
+    [1, 2], [1, 3], [1, 8],
+    [2, 3], [2, 4],
+    [3, 4], [3, 5],
+    [4, 5], [4, 6],
+    [5, 6], [5, 7],
+    [6, 7], [6, 8],
+    [7, 8]
+  ],
+  "basis_gates": ["rz", "sx", "x", "cx"],
+  "noise": {
+    "model": "official",
+    "p1": 0.001,
+    "p2": 0.005,
+    "p_readout": 0.01
+  },
+  "design_rationale": "This 4-regular circulant topology connects each qubit to its one- and two-step neighbors, giving the dense all-pairs cost layer a graph diameter of 2; it is intended to reduce long routing paths relative to Processor B, whose measured L routing probe had diameter 4. The additional couplers may increase crosstalk exposure on physical hardware, which this synthetic uniform-noise model does not capture."
+}

@@ -1,0 +1,550 @@
+{
+  "configuration": {
+    "schema_version": 2,
+    "problem_id": "PS-O-OI",
+    "instance_sha256": "bc5c4a88cb019df2911a169fefbeaa9da81e5b09a46929726f4770cc07077969",
+    "official_helper_sha256": "04be4fa610ba60854a2b3b9237891df7e8ade62e2fcd9659076e36e794f077ab",
+    "pipeline_sha256": "cad74fcea0659439cbb7dbf866a32558ae442dfc04d87f3b4258e8c4e341b1bb",
+    "python_version": "3.12.10",
+    "package_versions": {
+      "qiskit": "2.6.1",
+      "qiskit-aer": "0.18.2",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "matplotlib": "3.11.2"
+    },
+    "processor_sha256": {
+      "A": "e1655a064def818934ccb5f4e8eb2c0afa88f4f4e5c1d54a29579a5481325665",
+      "B": "f4696276cacac71220b69b194d2cd28a1a5f5e3eb8f8e477a4f1edaa7296bb46",
+      "D": "289e017bc858ddcf0dc3daa9feac808b65d2ab45abb2ce823bf90c1308f0043a"
+    },
+    "weights": {
+      "U": 0.6,
+      "C": 0.25,
+      "S": 0.15
+    },
+    "k": 3,
+    "reference_penalty": 3.0,
+    "qaoa_p": 1,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "shots": 4096,
+    "optimizer": "COBYLA",
+    "main_maxiter": 60,
+    "retry_maxiter": 150,
+    "penalty_values": [
+      0,
+      0.5,
+      1,
+      2,
+      3,
+      5,
+      10
+    ],
+    "cost_evaluation": "exact Qiskit Statevector probabilities",
+    "official": {
+      "basis_gates": [
+        "rz",
+        "sx",
+        "x",
+        "cx"
+      ],
+      "optimization_level": 1,
+      "seed_transpiler": 42,
+      "seed_simulator": 42,
+      "p1_depolarizing": 0.001,
+      "p2_depolarizing_cx": 0.005,
+      "readout_bitflip": 0.01
+    }
+  },
+  "generated_at_utc": "2026-10-29T19:28:58.067919+00:00",
+  "cost_evaluation": "exact Qiskit Statevector probabilities",
+  "source_cache_reused": true,
+  "runs_by_instance": {
+    "L": [
+      {
+        "seed": 0,
+        "initial_angles": [
+          2.0010741575072397,
+          0.8475599579967072
+        ],
+        "optimized_angles": [
+          2.266381700077773,
+          1.2916382573074012
+        ],
+        "expected_qubo_energy": -25.55801092555826,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 75,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 150,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": false,
+        "attempts": [
+          {
+            "seed": 0,
+            "initial_angles": [
+              2.0010741575072397,
+              0.8475599579967072
+            ],
+            "optimized_angles": [
+              2.266483663977974,
+              1.2905503341351272
+            ],
+            "expected_qubo_energy": -25.55783373430663,
+            "optimizer_success": false,
+            "optimizer_nfev": 60,
+            "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+            "maxiter": 60,
+            "runtime_seconds": 5.109420799999498,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          },
+          {
+            "seed": 0,
+            "initial_angles": [
+              2.0010741575072397,
+              0.8475599579967072
+            ],
+            "optimized_angles": [
+              2.266381700077773,
+              1.2916382573074012
+            ],
+            "expected_qubo_energy": -25.55801092555826,
+            "optimizer_success": true,
+            "optimizer_nfev": 75,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 150,
+            "runtime_seconds": 3.098980599999777,
+            "exception": null,
+            "source": "Phase 2 retry"
+          }
+        ]
+      },
+      {
+        "seed": 1,
+        "initial_angles": [
+          1.6079350561067187,
+          2.985969765881358
+        ],
+        "optimized_angles": [
+          1.9943880812781585,
+          2.9907403027192085
+        ],
+        "expected_qubo_energy": -18.861175716863347,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 45,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 60,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": true,
+        "attempts": [
+          {
+            "seed": 1,
+            "initial_angles": [
+              1.6079350561067187,
+              2.985969765881358
+            ],
+            "optimized_angles": [
+              1.9943880812781585,
+              2.9907403027192085
+            ],
+            "expected_qubo_energy": -18.861175716863347,
+            "optimizer_success": true,
+            "optimizer_nfev": 45,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 60,
+            "runtime_seconds": 3.701071800001955,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          }
+        ]
+      },
+      {
+        "seed": 2,
+        "initial_angles": [
+          0.8218787590475991,
+          0.9377375833114271
+        ],
+        "optimized_angles": [
+          0.9620128577719876,
+          1.785796157243275
+        ],
+        "expected_qubo_energy": -21.63173321072276,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 70,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 150,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": false,
+        "attempts": [
+          {
+            "seed": 2,
+            "initial_angles": [
+              0.8218787590475991,
+              0.9377375833114271
+            ],
+            "optimized_angles": [
+              0.9619334763274547,
+              1.7865257756328463
+            ],
+            "expected_qubo_energy": -21.631668141129595,
+            "optimizer_success": false,
+            "optimizer_nfev": 60,
+            "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+            "maxiter": 60,
+            "runtime_seconds": 5.529155500000343,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          },
+          {
+            "seed": 2,
+            "initial_angles": [
+              0.8218787590475991,
+              0.9377375833114271
+            ],
+            "optimized_angles": [
+              0.9620128577719876,
+              1.785796157243275
+            ],
+            "expected_qubo_energy": -21.63173321072276,
+            "optimizer_success": true,
+            "optimizer_nfev": 70,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 150,
+            "runtime_seconds": 3.753598900002544,
+            "exception": null,
+            "source": "Phase 2 retry"
+          }
+        ]
+      },
+      {
+        "seed": 3,
+        "initial_angles": [
+          0.2690747942844946,
+          0.7439621478151841
+        ],
+        "optimized_angles": [
+          0.5074074326508042,
+          1.570829926949087
+        ],
+        "expected_qubo_energy": -16.292007580418062,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 134,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 150,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": false,
+        "attempts": [
+          {
+            "seed": 3,
+            "initial_angles": [
+              0.2690747942844946,
+              0.7439621478151841
+            ],
+            "optimized_angles": [
+              0.571096547886867,
+              1.1525979031980838
+            ],
+            "expected_qubo_energy": -14.252579664425038,
+            "optimizer_success": false,
+            "optimizer_nfev": 60,
+            "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+            "maxiter": 60,
+            "runtime_seconds": 5.022819600002549,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          },
+          {
+            "seed": 3,
+            "initial_angles": [
+              0.2690747942844946,
+              0.7439621478151841
+            ],
+            "optimized_angles": [
+              0.5074074326508042,
+              1.570829926949087
+            ],
+            "expected_qubo_energy": -16.292007580418062,
+            "optimizer_success": true,
+            "optimizer_nfev": 134,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 150,
+            "runtime_seconds": 5.156170299997029,
+            "exception": null,
+            "source": "Phase 2 retry"
+          }
+        ]
+      },
+      {
+        "seed": 4,
+        "initial_angles": [
+          2.9626981331891504,
+          1.6063828834996454
+        ],
+        "optimized_angles": [
+          3.2247267445070285,
+          1.9510687612065392
+        ],
+        "expected_qubo_energy": -25.27731612679246,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 110,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 150,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": false,
+        "attempts": [
+          {
+            "seed": 4,
+            "initial_angles": [
+              2.9626981331891504,
+              1.6063828834996454
+            ],
+            "optimized_angles": [
+              3.22445610099168,
+              1.9428330724912346
+            ],
+            "expected_qubo_energy": -25.27175172231707,
+            "optimizer_success": false,
+            "optimizer_nfev": 60,
+            "optimizer_message": "Return from COBYLA because the objective function has been evaluated MAXFUN times.",
+            "maxiter": 60,
+            "runtime_seconds": 5.868325000003097,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          },
+          {
+            "seed": 4,
+            "initial_angles": [
+              2.9626981331891504,
+              1.6063828834996454
+            ],
+            "optimized_angles": [
+              3.2247267445070285,
+              1.9510687612065392
+            ],
+            "expected_qubo_energy": -25.27731612679246,
+            "optimizer_success": true,
+            "optimizer_nfev": 110,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 150,
+            "runtime_seconds": 4.48618809999607,
+            "exception": null,
+            "source": "Phase 2 retry"
+          }
+        ]
+      }
+    ],
+    "S": [
+      {
+        "seed": 0,
+        "initial_angles": [
+          2.0010741575072397,
+          0.8475599579967072
+        ],
+        "optimized_angles": [
+          0.9791926699079089,
+          1.2438388793257271
+        ],
+        "expected_qubo_energy": -26.647556011879715,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 47,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 60,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": true,
+        "attempts": [
+          {
+            "seed": 0,
+            "initial_angles": [
+              2.0010741575072397,
+              0.8475599579967072
+            ],
+            "optimized_angles": [
+              0.9791926699079089,
+              1.2438388793257271
+            ],
+            "expected_qubo_energy": -26.647556011879715,
+            "optimizer_success": true,
+            "optimizer_nfev": 47,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 60,
+            "runtime_seconds": 0.7864840999973239,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          }
+        ]
+      },
+      {
+        "seed": 1,
+        "initial_angles": [
+          1.6079350561067187,
+          2.985969765881358
+        ],
+        "optimized_angles": [
+          1.1677751510303152,
+          3.3971027252589563
+        ],
+        "expected_qubo_energy": -25.983617546408723,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 48,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 60,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": true,
+        "attempts": [
+          {
+            "seed": 1,
+            "initial_angles": [
+              1.6079350561067187,
+              2.985969765881358
+            ],
+            "optimized_angles": [
+              1.1677751510303152,
+              3.3971027252589563
+            ],
+            "expected_qubo_energy": -25.983617546408723,
+            "optimizer_success": true,
+            "optimizer_nfev": 48,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 60,
+            "runtime_seconds": 0.7907094999973197,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          }
+        ]
+      },
+      {
+        "seed": 2,
+        "initial_angles": [
+          0.8218787590475991,
+          0.9377375833114271
+        ],
+        "optimized_angles": [
+          0.9792630352979832,
+          1.2437852530848195
+        ],
+        "expected_qubo_energy": -26.647556389101222,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 41,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 60,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": true,
+        "attempts": [
+          {
+            "seed": 2,
+            "initial_angles": [
+              0.8218787590475991,
+              0.9377375833114271
+            ],
+            "optimized_angles": [
+              0.9792630352979832,
+              1.2437852530848195
+            ],
+            "expected_qubo_energy": -26.647556389101222,
+            "optimizer_success": true,
+            "optimizer_nfev": 41,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 60,
+            "runtime_seconds": 1.5895841999954428,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          }
+        ]
+      },
+      {
+        "seed": 3,
+        "initial_angles": [
+          0.2690747942844946,
+          0.7439621478151841
+        ],
+        "optimized_angles": [
+          0.9792419830181842,
+          1.2439552760967916
+        ],
+        "expected_qubo_energy": -26.647555190669475,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 56,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 60,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": true,
+        "attempts": [
+          {
+            "seed": 3,
+            "initial_angles": [
+              0.2690747942844946,
+              0.7439621478151841
+            ],
+            "optimized_angles": [
+              0.9792419830181842,
+              1.2439552760967916
+            ],
+            "expected_qubo_energy": -26.647555190669475,
+            "optimizer_success": true,
+            "optimizer_nfev": 56,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 60,
+            "runtime_seconds": 1.2835478999986663,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          }
+        ]
+      },
+      {
+        "seed": 4,
+        "initial_angles": [
+          2.9626981331891504,
+          1.6063828834996454
+        ],
+        "optimized_angles": [
+          3.042999574877499,
+          1.3472044703702784
+        ],
+        "expected_qubo_energy": -24.993259274271523,
+        "optimizer_success": true,
+        "any_attempt_converged": true,
+        "optimizer_nfev": 31,
+        "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+        "optimizer_maxiter": 60,
+        "optimizer_exception": null,
+        "initial_step1a_attempt_success": true,
+        "attempts": [
+          {
+            "seed": 4,
+            "initial_angles": [
+              2.9626981331891504,
+              1.6063828834996454
+            ],
+            "optimized_angles": [
+              3.042999574877499,
+              1.3472044703702784
+            ],
+            "expected_qubo_energy": -24.993259274271523,
+            "optimizer_success": true,
+            "optimizer_nfev": 31,
+            "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+            "maxiter": 60,
+            "runtime_seconds": 0.5174422999989474,
+            "exception": null,
+            "source": "preserved Step 1A cache"
+          }
+        ]
+      }
+    ]
+  }
+}
