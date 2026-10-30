@@ -1,51 +1,204 @@
-# Bio-Sniff QFF 2026 Phase 2 — PS-O-OI
+# Bio-Sniff Quantum Optimisation
 
-Bio-Sniff continues its Phase 1 Open Innovation sensor-placement problem. The locked inputs describe synthetic placements and must not be interpreted as measured field performance. The Phase 2 Bio-Sniff deliverables document controls over the generic PS-O1/O2/O3 instances in `data/instances.json`.
+**An AI and Quantum Computing-based approach to intelligent sensor placement for early agricultural disease detection.**
 
-## Environment and Run
+Bio-Sniff explores the use of electronic-nose sensor networks and quantum optimization to support intelligent sensor placement for detecting potential crop disease signals through volatile organic compounds (VOCs).
 
-Use Python 3.10–3.12; this repository was verified with Python 3.12.10. Create and activate an environment, then install the pinned direct dependencies:
+This repository preserves the research, implementation, experiments, and development of Bio-Sniff across two phases.
+
+## Project Overview
+
+The project investigates how intelligent sensor placement and quantum optimization can contribute to early agricultural disease detection.
+
+### Project Phases
+
+| Phase | Description |
+|---|---|
+| **Phase One** | Original Bio-Sniff research, synthetic dataset development, initial sensor-placement formulation, and foundational quantum optimization experiments. |
+| **Phase Two** | QFF 2026 Open Innovation evaluation, QAOA benchmarking, processor topology design, circuit-resource analysis, Bell-state experiments, and reproducibility studies. |
+
+### Repository Organization
+
+```text
+Bio-Sniff-Quantum-Optimization/
+|
+|-- Phase One/
+|   |-- data/
+|   |-- docs/
+|   |-- notebooks/
+|   |-- results/
+|   |-- README.md
+|   `-- requirements.txt
+|
+|-- data/
+|-- docs/
+|-- processors/
+|-- results/
+|-- src/
+|-- main.ipynb
+|-- qff_phase2.py
+|-- report.md
+|-- requirements.txt
+`-- README.md
+```
+
+**Development convention:** Phase One is preserved as a historical milestone inside `Phase One/`. Phase Two and all future development continue directly in the repository root. No separate `Phase Two/` directory is used.
+
+---
+
+# Phase Two - QFF 2026 Open Innovation
+
+Bio-Sniff continues its Phase One Open Innovation sensor-placement problem. The locked inputs describe synthetic placements and must not be interpreted as measured field performance. The Phase Two Bio-Sniff deliverables document controls the evaluation requirements for the generic PS-O1/O2/O3 instances in `data/instances.json`. The Bio-Sniff-specific locked input is `data/instance.json`.
+
+## Environment and Installation
+
+### Requirements
+
+- Python 3.10–3.12
+- Python 3.12.10 was used for the reported verification.
+- Dependencies specified in `requirements.txt`.
+
+### Create the environment
+
+Run the following commands in PowerShell from the repository root:
 
 ```powershell
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-Open `main.ipynb`, select the installed Python 3.12 kernel, and run all cells from a clean kernel. Cell 1 checks the environment and official helpers. Cell 2 runs the end-to-end Phase 2 pipeline with checkpointed optimization and measurement caches. Compatible completed work is reused; missing or invalid cache records are recomputed. The optimizer status, including failed attempts and iteration limits, is preserved in the per-seed outputs.
+### Run the experiment
 
-The official organizer helper `qff_phase2.py` is unchanged. The locked `data/instance.json` is the Bio-Sniff input; `data/instances.json` remains the generic starter file and is not used for PS-O-OI.
+1. Open `main.ipynb`.
+2. Select the installed Python 3.12 virtual environment as the notebook kernel.
+3. Start with a clean kernel.
+4. Run all notebook cells from beginning to end.
 
-## Current Measured Summary
+The notebook performs the following operations:
 
-The values below are generated from the current result tables. They describe synthetic simulation only.
+- **Cell 1:** Checks the Python environment, dependencies, and official helper functions.
+- **Cell 2:** Executes the Phase Two experiment pipeline using checkpointed optimization and measurement caches.
 
-| Case | Noisy objective ratio | Noisy valid frequency | Random objective ratio | Random valid frequency |
-| --- | ---: | ---: | ---: | ---: |
-| L on B | 0.7255 | 0.2793 | 0.8157 | 0.1641 |
-| L on D | 0.7786 | 0.2891 | 0.8157 | 0.1641 |
-| S on A | 0.9094 | 0.5068 | 0.8829 | 0.3125 |
-| S on B | 0.9865 | 0.5188 | 0.8829 | 0.3125 |
-| S on D | 0.8959 | 0.5118 | 0.8829 | 0.3125 |
+Compatible completed experiment records are reused. Missing or invalid cache records are recomputed. Optimizer termination statuses, failed attempts, retries, and iteration limits are preserved in the per-seed experiment outputs.
 
-For Instance L, the 60-evaluation Step 1A optimizer status was unsuccessful for four of five seeds. The Phase 2 150-evaluation retry reached a successful COBYLA termination for all five L seeds; both attempts and their statuses are recorded. The result above remains a simulated synthetic benchmark, not quantum advantage.
+The official organizer helper `qff_phase2.py` is preserved unchanged.
 
-The required two-pair D Bell experiment measured ideal fidelity 1.0000 for both pairs, noisy fidelity 0.9633 for adjacent pair `[0,1]`, and 0.9548 for farthest pair `[0,3]` (graph distance 2). In the noisy L penalty sweep, P=0 produced an invalid QUBO minimum; among tested penalties, P=5 had the highest measured valid-frequency × objective-ratio product. This product is a descriptive comparison, not an official score.
+## Experimental Results
 
-## Outputs
+The following values are taken from the generated result tables. They describe the specified synthetic simulation benchmark only.
 
-- `results/tables/results.csv`: required per-instance, processor, condition, quality, and resource schema.
-- `results/tables/bell.csv`: ideal/noisy Bell correlations, standard errors, fidelity, and CX count.
-- `results/tables/penalty_sweep.csv`: L-on-D sweep at P = 0, 0.5, 1, 2, 3, 5, 10.
-- `results/tables/seed_runs.csv` and `seed_consistency.csv`: per-seed optimization status, sampled results, and ratio variability.
-- `results/optimization/`: smoke test, optimized angles, resource metrics, and resumable experiment checkpoint cache.
-- `results/figures/`: Processor D topology, logical/transpiled QAOA circuits, benchmark comparison, and penalty sweep.
-- `report.md`: analysis generated from the result tables and checkpoints.
+### QAOA versus uniform-random sampling
 
-Processor A is correctly marked non-executable for L (nine logical qubits required, five available). Processor A/B/D graphs, official noise rates, 4096-shot evaluation, transpilation level 1, seed 42, and basis gates are taken from the official specification/helper.
+| Instance | Processor | Noisy objective ratio | Noisy valid frequency | Random objective ratio | Random valid frequency |
+|---|---|---:|---:|---:|---:|
+| L | B | 0.7255 | 0.2793 | 0.8157 | 0.1641 |
+| L | D | 0.7786 | 0.2891 | 0.8157 | 0.1641 |
+| S | A | 0.9094 | 0.5068 | 0.8829 | 0.3125 |
+| S | B | 0.9865 | 0.5188 | 0.8829 | 0.3125 |
+| S | D | 0.8959 | 0.5118 | 0.8829 | 0.3125 |
 
-## Limitations and AI Disclosure
+The results show that QAOA performance depends on the instance, processor, and evaluation metric. Although valid-placement frequency exceeds the uniform-random baseline in all five reported configurations, objective ratio does not exceed the random baseline in every case.
 
-The candidate grid, coverage data, utility, complementarity, and spacing values are synthetic. They do not establish measured VOC transport, calibrated disease detection, or a validated physical farm placement. No real-field validation or quantum-advantage claim is made.
+These measurements do not establish quantum advantage over classical optimization.
 
-AI assistance (GitHub Copilot) was used to inspect the official specifications, implement the notebook/pipeline and validation code, and summarize executed results. All reported measurements were generated by the repository pipeline using the official helper and are traceable to the saved CSV/checkpoint outputs.
+### Optimizer convergence and reproducibility
+
+For Instance L, four of the five original Step 1A starts had unsuccessful or iteration-limit statuses under the 60-evaluation limit.
+
+The subsequent 150-evaluation retries reached successful final COBYLA termination for all five L seeds. The original attempts, retries, and optimizer statuses are retained in the experiment records.
+
+### Bell-state verification
+
+The required two-pair Bell experiment produced:
+
+| Measurement | Ideal fidelity | Noisy fidelity |
+|---|---:|---:|
+| Adjacent pair `[0,1]` | 1.0000 | 0.9633 |
+| Farthest pair `[0,3]` | 1.0000 | 0.9548 |
+
+The farthest pair has graph distance 2.
+
+### Penalty sensitivity
+
+For the noisy Instance L penalty sweep on Processor D:
+
+- At `P = 0`, the minimum-energy QUBO bitstring is invalid.
+- Among the tested penalty values, `P = 5` produced the highest measured valid-frequency × objective-ratio product.
+- This product is a team-defined descriptive comparison, not an official competition scoring metric.
+
+Detailed results and standard deviations are available in `results/tables/penalty_sweep.csv`.
+
+## Processor Evaluation
+
+The Phase Two experiments evaluate the specified processor configurations:
+
+- Processor A
+- Processor B
+- Processor D
+
+Processor A is correctly marked non-executable for Instance L because L requires nine logical qubits while Processor A provides five physical qubits.
+
+Processor D introduces a connected nine-qubit, 18-edge, degree-four topology. Its circuit-resource performance is evaluated through the transpiled circuit metrics.
+
+The experiments use the official processor definitions, noise rates, 4096-shot evaluation, transpilation optimization level 1, transpiler seed 42, and the specified basis gates.
+
+See `report.md` and `docs/processor_D_design.md` for the detailed analysis.
+
+## Generated Outputs
+
+The repository preserves the experiment outputs and reproducibility artifacts.
+
+| Path | Description |
+|---|---|
+| `results/tables/results.csv` | Per-instance, processor, condition, quality, and circuit-resource results. |
+| `results/tables/bell.csv` | Ideal/noisy Bell correlations, standard errors, fidelity, and CX count. |
+| `results/tables/penalty_sweep.csv` | Instance L on Processor D penalty-sensitivity results. |
+| `results/tables/seed_runs.csv` | Per-seed optimization attempts and sampled results. |
+| `results/tables/seed_consistency.csv` | Per-seed objective-ratio statistics and optimizer consistency. |
+| `results/optimization/` | Optimization angles, resource metrics, smoke tests, and experiment checkpoint cache. |
+| `results/figures/` | Processor D topology, QAOA circuits, benchmark comparisons, and penalty-sweep figures. |
+| `report.md` | Detailed Phase Two experimental analysis and findings. |
+
+Additional implementation and validation files include:
+
+- `qff_phase2.py`
+- `validate_instance.py`
+- `processor_D_template.json`
+- `example_usage.py`
+- `src/`
+- `processors/`
+
+## Limitations and Future Validation
+
+The candidate grid, source locations, wind displacement, coverage values, utility, complementarity, and spacing used in the experiments are synthetic.
+
+Consequently, the reported results do not establish:
+
+- Measured VOC transport or plume behavior.
+- Calibrated disease-detection probability.
+- A disease-specific signal validated under field conditions.
+- Optimal sensor placement for a physical agricultural field.
+
+Real-world validation would require calibrated sensors, documented candidate coordinates, validated plume and dispersion assumptions, and controlled field measurements.
+
+The QAOA experiments are simulation-based. No real quantum-hardware experiment or real-field validation was completed in this milestone. No quantum-advantage claim is made.
+
+## AI Assistance Disclosure
+
+GitHub Copilot was used to assist with inspection of the official specifications, implementation of the notebook and experiment pipeline, validation code, and summarization of executed results.
+
+All reported measurements were generated by the repository's experiment pipeline using the official helper and are traceable to the saved CSV files and checkpoint outputs.
+
+---
+
+## Project Status
+
+Bio-Sniff is maintained as a continuing research and development project.
+
+- **Phase One:** Preserved as the original project milestone.
+- **Phase Two:** Completed experimental implementation and documented benchmarking deliverables.
+- **Future development:** Continues in the repository root, building on the existing work.
+
+For detailed Phase Two methodology, experimental configurations, and analysis, refer to `report.md` and the supporting documentation in `docs/`.
